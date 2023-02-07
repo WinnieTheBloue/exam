@@ -17,7 +17,4 @@ fetch(usersURL).then((el) => el.json()).then((data) => {
         }
         const newUser = new User(user);
     })
-
 })
-
-
