@@ -7,9 +7,19 @@ class User {
             const target = e.target;
             if (this.status) {
                 this.status = false; 
+                const counter = document.querySelector(".counter");
+                let nb = counter.innerText.substr(0,1)
+                nb --;
+                let text = nb + '/20 people are here';
+                counter.innerText = text;
     
             } else {
                 this.status = true;
+                const counter = document.querySelector(".counter");
+                let nb = counter.innerText.substr(0,1)
+                nb ++;
+                let text = nb + '/20 people are here';
+                counter.innerText = text;
             }
 
             if (target.tagName != 'DIV') {
@@ -17,16 +27,10 @@ class User {
                 target.offsetParent.dataset.present = this.status;
             } else {
                 target.dataset.present = this.status;
-            }
-            
-
-            
-            
-
+            }           
             
         })
     }
-
 
     generateElement() {
         const containerElement = document.createElement("div");
@@ -47,7 +51,6 @@ class User {
         containerElement.insertAdjacentHTML("afterbegin", childHTML);
         return containerElement;
 
-        
     }
 
     render() {
